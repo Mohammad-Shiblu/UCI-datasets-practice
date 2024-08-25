@@ -22,4 +22,12 @@ class Models:
             raise ValueError(f"Model type {model_type} is not supported.")
         
     
-    def 
+    def train(self, X_trian, y_train):
+        self.model.fit(X_trian, y_train)
+
+    def predict(self, X_test):
+        return self.model.predict(X_test)
+    
+    def evaluate(self, X_test, y_test):
+        predict = self.predict(X_test)
+        return accuracy_score(y_test, predict)
